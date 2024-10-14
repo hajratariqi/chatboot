@@ -4,9 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(224, 247, 255);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .container{
+            width: 60vw;
+            height: 70vh;
+            margin: auto;
+            border-radius: 30px;
+            background-color: white;
+            padding: 50px;
+            position: relative;
+            overflow: scroll;
+        }
+        .send-msg{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 20px;
+            width: 90%;
+            left: 0px;
+            right: 0px;
+            padding: 50px;
+            gap: 20px;
+        }
+    .send-msg input{
+    width: 100%;
+    font-size: 20px;
+    padding: 22px 10px;
+    border-radius: 12px;
+    border: 1px solid #dadada;
+        }
+    .send-msg button{
+    padding: 18px;
+    border: 1px solid #dadada;
+    background: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 30%;
+        }
+        .user{
+            margin-left: auto;
+            color: white;
+            display: block;
+            background-color: blue;
+        }
+        .chatbot{
+            background-color: #dadada;
+            margin-right: auto;
+        }
+        li{
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 200px;
+            border-bottom-right-radius: 0px;
+        }
+        #msgList{
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+            gap: 20px;
+        }
+        #typing{
+            color: gray;
+            bottom: 170px;
+            font-style: italic;
+            position: absolute;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-     
+     <div class="container">
+        <ul id="msgList"></ul>
+        <p id="typing" >Typing...</p>
+        <div class="send-msg">
+            <input type="text" name="message" id="msg" placeholder="Say something..." onkeypress="sendMsg()">
+            <button onclick="sendMsg()">Send</button>
+        </div>
+     </div>
 
     <script src="./app.js"></script>
 </body>
